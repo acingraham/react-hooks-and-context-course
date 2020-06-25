@@ -1,0 +1,426 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+		<style>
+			.reveal h3 {
+				/*color: #5051DB;*/
+				/*color: #3887F7;*/
+				text-transform: none;
+			}
+
+			strong {
+				color: #5051DB;
+			}
+
+			.reveal section img {
+				max-height: 100vh;
+			}
+
+			.reveal blockquote {
+				width: inherit;
+			}
+
+			code {
+				tab-size: 4;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>React Hooks <strikethrough>& Context</strikethrough></h3>
+					<hr>
+					<a href="https://bit.ly/fh-react" target="_blank">bit.ly/TODO</a>
+				</section>
+				<!--
+				<section>
+					<h3>Overview</h3>
+					<ol>
+						<li>Hooks (45 min)</li>
+						<li>Context (15 min)</li>
+					</ol>
+				</section>
+				<section>
+					<h3>Hooks Overview</h3>
+					<ol>
+						<li>Introduction</li>
+						<li>Built-In Hooks</li>
+						<li>Custom Hooks</li>
+					</ol>
+				</section>
+				-->
+
+				<!--
+				<section>
+					<h3>Hooks Introduction</h3>
+				</section>
+				-->
+	
+				<section>
+					<ul>
+						<li>Introduced in React 16.8</li>
+						<li>Intended to solve a variety of seemingly unrelated problems (which we'll cover shortly)</li>
+						<li>Functions that let you “hook into” React state and lifecycle features from function components</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide-in fade-out">
+					<ul>
+					<li>First set of problems they solve that we'll cover are related to React's Class Components</li>
+					<li>What are 2 reasons you'd need to convert a functional component to a class component?</li>
+						<hr>
+						<ol>
+							<li></li>
+							<li></li>
+						</ol>
+					</ul>
+				</section>
+
+				<section data-transition="fade-in fade-out">
+					<ul>
+					<li>First set of problems they solve that we'll cover are related to React's Class Components</li>
+					<li>What are 2 reasons you'd need to convert a functional component to a class component?</li>
+						<hr>
+						<ol>
+							<li>To add state</li>
+							<li></li>
+						</ol>
+					</ul>
+				</section>
+
+				<section data-transition="fade-in slide-out">
+					<ul>
+						<li>First set of problems they solve that we'll cover are related to React's Class Components</li>
+						<li>What are 2 reasons you'd need to convert a functional component to a class component?</li>
+						<hr>
+						<ol>
+							<li>To add state</li>
+							<li>To use lifecycle methods</li>
+						</ol>
+					</ul>
+				</section>
+
+				<section>
+					<p>Let's go over a class component that uses state and see how we can replace it with hooks</p>
+				</section>
+
+				<section>
+					<pre><code data-trim data-noescape>
+						class Counter extends React.Component {
+							constructor(props) {
+							  super(props);
+							  this.state = {
+								count: 0
+							  };
+							}
+						  
+							render() {
+							  return (
+								&lt;div&gt;
+								  &lt;You clicked {this.state.count} times&lt;/p&gt;
+								  &lt;button onClick={() => this.setState({ count: this.state.count + 1 })}&gt;
+									Click me
+								  &lt;/button&gt;
+								&lt;/div&gt;
+							  );
+							}
+						  }
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>To add state to a functional component, we can use the built-in State Hook</h3>
+				</section>
+
+				<section>
+					<section>
+						<iframe
+							src="https://codesandbox.io/embed/flamboyant-wood-3ow50?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="flamboyant-wood-3ow50"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+					<section>
+						<iframe
+							src="https://codesandbox.io/embed/zealous-herschel-qj0w1?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="zealous-herschel-qj0w1"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+				</section>
+
+				<section>
+					<h3>useState</h3>
+					<hr>
+					<ul>
+						<li>returns an array, with the first element the current value and the second a function for setting the value</li>
+						<li>takes a single argument for the initial state. This can be any type / value you like.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>useState vs setState</h3>
+					<hr>
+					<ul>
+						<li>useState can take any type</li>
+						<li>useState's setter function doesn't merge states. Instead, it replaces the previous state.</li>
+					</ul>
+				</section>
+
+				<section>
+					<p>If you have multiple pieces of state you want your component to manage, you might think you need to store the state as an object</p>
+					<p>You can, but you don't have to since useState can be called multiple times within the same component</p>
+					<p>This has the advantage of allowing you to break out your state logic and share more easily between components</p>
+				</section>
+
+				<section>
+					<section>
+						<iframe
+							src="https://codesandbox.io/embed/condescending-curie-3nqqy?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="condescending-curie-3nqqy"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+					<section>
+						<iframe
+							src="https://codesandbox.io/embed/relaxed-frog-dxbtc?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="relaxed-frog-dxbtc"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+				</section>
+
+				<section data-transition="slide-in fade-out">
+					<ul>
+						<li>First set of problems they solve that we'll cover are related to React's Class Components</li>
+						<li>What are 2 reasons you'd need to convert a functional component to a class component?</li>
+						<hr>
+						<ol>
+							<li>To add state</li>
+							<li>To use lifecycle methods</li>
+						</ol>
+					</ul>
+				</section>
+
+				<section data-transition="fade-in slide-out">
+					<ul>
+						<li>First set of problems they solve that we'll cover are related to React's Class Components</li>
+						<li>What are 2 reasons you'd need to convert a functional component to a class component?</li>
+						<hr>
+						<ol>
+							<li><strike>To add state</strike></li>
+							<li>To use lifecycle methods</li>
+						</ol>
+					</ul>
+				</section>
+
+				<section>
+					<p>Let's go over a class component that uses lifecycle methods and see how we can replace them with hooks</p>
+				</section>
+
+				<section>
+					<iframe
+						src="https://codesandbox.io/embed/friendly-solomon-3rtbt?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+						style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+						title="friendly-solomon-3rtbt"
+						allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+						sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+					></iframe>
+				</section>
+
+				<section>
+					<h3>To replace (most) lifecycle methods, we can use the built-in Effect Hook</h3>
+				</section>
+
+				<section>
+					<section>
+						<iframe
+							src="https://codesandbox.io/embed/musing-knuth-j95ck?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="musing-knuth-j95ck"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+					<section>
+						<iframe
+							src="https://codesandbox.io/embed/great-elion-r2zky?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="great-elion-r2zky"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+				</section>
+
+				<section>
+					<h3>useEffect</h3>
+					<hr>
+					<ul>
+						<li>Takes a function that is called after each render</li>
+						<li>Runs after all changes have been flushed to the DOM</li>
+						<li>Unlike componentDidMount or componentDidUpdate, effects scheduled with useEffect don’t block the browser from updating the screen</li>
+					</ul>
+				</section>
+
+				<section>
+					<p>What we've seen so far replaces componentDidMount and componentDidUpdate, but we can also replace componentWillUnmount</p>
+				</section>
+
+				<section>
+					<section>
+						<iframe
+							src="https://codesandbox.io/embed/great-elion-r2zky?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="great-elion-r2zky"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+					<section>
+						<iframe
+							src="https://codesandbox.io/embed/nice-mahavira-hhvus?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="nice-mahavira-hhvus"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+				</section>
+
+				<section>
+					<h3>useEffect</h3>
+					<hr>
+					<ul>
+						<li>If you return a function, it'll be called prior to re-rendering and on unmount</li>
+						<li>You can provide an array as a second argument to useEffect to control when the effect will run</li>
+						<li>If you pass no argument, it runs every render</li>
+						<li>If you pass an empty array, it'll only run on mount</li>
+						<li>If you pass a non-empty array, it'll only run on mount and when the values within the array change</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>useEffect</h3>
+					<hr>
+					<ul>
+						<li>Just like with useState, you can call useEffect multiple times within a component</li>
+						<li>This allows you to encapsulate related logic</li>
+						<li>React will apply every effect used by the component, in the order they were specified</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>How does React keep track of multiple calls to hooks?</h3>
+				</section>
+
+				<section>
+					<iframe
+						src="https://codesandbox.io/embed/relaxed-frog-dxbtc?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+						style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+						title="relaxed-frog-dxbtc"
+						allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+						sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+					></iframe>
+				</section>
+
+				<section>
+					<h3>Other Built-In Hooks</h3>
+					<hr>
+					<ul>
+						<li>useContext</li>
+						<li>useReducer</li>
+						<li>useCallback</li>
+						<li>useMemo</li>
+						<li>useRef</li>
+						<li>useImperativeHandle</li>
+						<li>useLayoutEffect</li>
+						<li>useDebugValue</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Problems Hooks are trying to solve</h3>
+					<ul>
+						<li>It’s hard to reuse stateful logic between components</li>
+						<li>Lifecycle methods cause related logic to be separated and unrelated logic to be grouped</li>
+						<li>Classes are confusing for humans & computers</li>
+					</ul>
+				</section>
+
+				<section data-transition="slide-in fade-out">
+					<h3>So should we rewrite all our components?</h3>
+					<hr>
+				</section>
+
+				<section data-transition="fade-in slide-out">
+					<h3>So should we rewrite all our components?</h3>
+					<hr>
+					<blockquote>Crucially, Hooks work side-by-side with existing code so you can adopt them gradually. There is no rush to migrate to Hooks. We recommend avoiding any “big rewrites”, especially for existing, complex class components. It takes a bit of a mindshift to start “thinking in Hooks”. In our experience, it’s best to practice using Hooks in new and non-critical components first, and ensure that everybody on your team feels comfortable with them. - The React Team</blockquote>
+				</section>
+
+
+				<!--
+				<section>
+					<pre><code  data-trim data-line-numbers="3-5|8-10|13-15">
+						<table>
+						<tr>
+							<td>Apples</td>
+							<td>$1</td>
+							<td>7</td>
+						</tr>
+						<tr>
+							<td>Oranges</td>
+							<td>$2</td>
+							<td>18</td>
+						</tr>
+						<tr>
+							<td>Kiwi</td>
+							<td>$3</td>
+							<td>1</td>
+						</tr>
+						</table>
+					</code></pre>
+				</section>
+				-->
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
