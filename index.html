@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>React Hooks & Context</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -41,18 +41,20 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h3>React Hooks <strike>& Context</strike></h3>
+					<h3>React Hooks</h3>
 					<hr>
 					<a href="https://bit.ly/fh-react-hooks" target="_blank">bit.ly/fh-react-hooks</a>
 				</section>
-				<!--
+
 				<section>
 					<h3>Overview</h3>
 					<ol>
-						<li>Hooks (45 min)</li>
-						<li>Context (15 min)</li>
+						<li>Hooks (75 min)</li>
+						<li>Q&A / Exercises (30 min)</li>
 					</ol>
 				</section>
+
+				<!--
 				<section>
 					<h3>Hooks Overview</h3>
 					<ol>
@@ -61,9 +63,6 @@
 						<li>Custom Hooks</li>
 					</ol>
 				</section>
-				-->
-
-				<!--
 				<section>
 					<h3>Hooks Introduction</h3>
 				</section>
@@ -73,7 +72,7 @@
 					<ul>
 						<li>Introduced in React 16.8</li>
 						<li>Intended to solve a variety of seemingly unrelated problems (which we'll cover shortly)</li>
-						<li>Functions that let you “hook into” React state and lifecycle features from function components</li>
+						<li>Functions that let you “hook into” React state and lifecycle features from functional components</li>
 					</ul>
 				</section>
 
@@ -118,27 +117,13 @@
 				</section>
 
 				<section>
-					<pre><code data-trim data-noescape>
-						class Counter extends React.Component {
-							constructor(props) {
-							  super(props);
-							  this.state = {
-								count: 0
-							  };
-							}
-						  
-							render() {
-							  return (
-								&lt;div&gt;
-								  &lt;You clicked {this.state.count} times&lt;/p&gt;
-								  &lt;button onClick={() => this.setState({ count: this.state.count + 1 })}&gt;
-									Click me
-								  &lt;/button&gt;
-								&lt;/div&gt;
-							  );
-							}
-						  }
-					</code></pre>
+					<iframe
+						src="https://codesandbox.io/embed/jolly-poitras-x9gw0?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+						style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+						title="jolly-poitras-x9gw0"
+						allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+						sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+					></iframe>
 				</section>
 
 				<section>
@@ -211,6 +196,32 @@
 					</section>
 				</section>
 
+				<section>
+					<section>
+						<h3>useState Challenges</h3>
+						<hr>
+						<p>Press &darr; for challenges</p>
+					</section>
+					<section>
+						<h3>Challenge 1</h3>
+						<p>Convert the following class component to an equivalent functional component using Hooks</p>
+						<iframe
+							src="https://codesandbox.io/embed/nameless-browser-jihhc?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCar.js&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="nameless-browser-jihhc"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+					<!--
+						TODO - Have this one be where you only want it to run once
+					<section>
+						<h3>Challenge 2</h3>
+						<p>Convert the following class component to an equivalent functional component using Hooks</p>
+					</section>
+					-->
+				</section>
+
 				<section data-transition="slide-in fade-out">
 					<ul>
 						<li>First set of problems they solve that we'll cover are related to React's Class Components</li>
@@ -241,16 +252,16 @@
 
 				<section>
 					<iframe
-						src="https://codesandbox.io/embed/friendly-solomon-3rtbt?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+						src="https://codesandbox.io/embed/nostalgic-gould-nwron?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
 						style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-						title="friendly-solomon-3rtbt"
+						title="nostalgic-gould-nwron"
 						allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
 						sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 					></iframe>
 				</section>
 
 				<section>
-					<h3>To replace (most) lifecycle methods, we can use the built-in Effect Hook</h3>
+					<h3>To replace some of the most used lifecycle methods, we can use the built-in Effect Hook</h3>
 				</section>
 
 				<section>
@@ -285,7 +296,12 @@
 				</section>
 
 				<section>
-					<p>What we've seen so far replaces componentDidMount and componentDidUpdate, but we can also replace componentWillUnmount</p>
+					<h3>useEffect also provides the ability to</h3>
+					<hr>
+					<ul>
+						<li>cleanup after an effect</li>
+						<li>run an effect conditionally</li>
+					</ul>
 				</section>
 
 				<section>
@@ -303,6 +319,31 @@
 							src="https://codesandbox.io/embed/nice-mahavira-hhvus?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
 							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
 							title="nice-mahavira-hhvus"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+				</section>
+
+				<section>
+					<p>What we've seen so far replaces componentDidMount and componentDidUpdate, but we can also replace componentWillUnmount</p>
+				</section>
+
+				<section>
+					<section>
+						<iframe
+							src="https://codesandbox.io/embed/nice-mahavira-hhvus?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="nice-mahavira-hhvus"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+					<section>
+						<iframe
+							src="https://codesandbox.io/embed/happy-goldberg-5bg16?fontsize=14&hidenavigation=1&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="happy-goldberg-5bg16"
 							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
 							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 						></iframe>
@@ -332,6 +373,59 @@
 				</section>
 
 				<section>
+					<section>
+						<iframe
+							src="https://codesandbox.io/embed/nice-mahavira-hhvus?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="nice-mahavira-hhvus"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+					<section>
+						<iframe
+							src="https://codesandbox.io/embed/happy-forest-ikv53?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="happy-forest-ikv53"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>useEffect Challenges</h3>
+						<hr>
+						<p>Press &darr; for challenges</p>
+					</section>
+					<!--
+					<section>
+						<h3>Challenge 1</h3>
+						<p>Convert the following class component to an equivalent functional component using Hooks</p>
+						<iframe
+							src="https://codesandbox.io/embed/nameless-browser-jihhc?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCar.js&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="nameless-browser-jihhc"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+					-->
+					<section>
+						<h3>Challenge 1</h3>
+						<p>Using the numbers api, make it so when the user changes the input, the response is shown to the user</p>
+						<iframe
+							src="https://codesandbox.io/embed/elegant-hellman-ptrdj?fontsize=14&hidenavigation=1&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="elegant-hellman-ptrdj"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+				</section>
+
+				<section>
 					<h3>How does React keep track of multiple calls to hooks?</h3>
 				</section>
 
@@ -346,18 +440,71 @@
 				</section>
 
 				<section>
-					<h3>Other Built-In Hooks</h3>
-					<hr>
-					<ul>
-						<li>useContext</li>
-						<li>useReducer</li>
-						<li>useCallback</li>
-						<li>useMemo</li>
-						<li>useRef</li>
-						<li>useImperativeHandle</li>
-						<li>useLayoutEffect</li>
-						<li>useDebugValue</li>
-					</ul>
+					<section>
+						<h3>Other Built-In Hooks</h3>
+						<hr>
+						<ul>
+							<li>useContext</li>
+							<li>useReducer</li>
+							<li>useCallback</li>
+							<li>useMemo</li>
+							<li>useRef</li>
+							<li>useImperativeHandle</li>
+							<li>useLayoutEffect</li>
+							<li>useDebugValue</li>
+						</ul>
+					</section>
+
+					<!--
+					<section>
+						<h3>useContext</h3>
+						<hr>
+						<p>Accepts a context object (the value returned from React.createContext) and returns the current context value for that context</p>
+					</section>
+
+					<section>
+						<h3>useReducer</h3>
+						<hr>
+						<p></p>
+					</section>
+
+					<section>
+						<h3>useCallback</h3>
+						<hr>
+						<p></p>
+					</section>
+
+					<section>
+						<h3>useMemo</h3>
+						<hr>
+						<p></p>
+					</section>
+
+					<section>
+						<h3>useRef</h3>
+						<hr>
+						<p></p>
+					</section>
+
+					<section>
+						<h3>useImperativeHandle</h3>
+						<hr>
+						<p></p>
+					</section>
+
+					<section>
+						<h3>useLayoutEffect</h3>
+						<hr>
+						<p></p>
+					</section>
+
+					<section>
+						<h3>useDebugValue</h3>
+						<hr>
+						<p></p>
+					</section>
+					-->
+
 				</section>
 
 				<section>
@@ -369,6 +516,8 @@
 					</ul>
 				</section>
 
+				<!-- TODO - Custom Hooks -->
+
 				<section data-transition="slide-in fade-out">
 					<h3>So should we rewrite all our components?</h3>
 					<hr>
@@ -379,6 +528,18 @@
 					<hr>
 					<blockquote>Crucially, Hooks work side-by-side with existing code so you can adopt them gradually. There is no rush to migrate to Hooks. We recommend avoiding any “big rewrites”, especially for existing, complex class components. It takes a bit of a mindshift to start “thinking in Hooks”. In our experience, it’s best to practice using Hooks in new and non-critical components first, and ensure that everybody on your team feels comfortable with them. - The React Team</blockquote>
 				</section>
+
+				<section data-transition="slide-in slide-out">
+					<h3>Q&A</h3>
+				</section>
+
+
+
+				<!-- TODO - More challenges
+					- Pokedex
+					- Todo App
+					- Timer
+				-->
 
 
 				<!--
