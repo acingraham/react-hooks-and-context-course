@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>React Hooks & Context</title>
+		<title>React Hooks</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -46,6 +46,20 @@
 					<a href="https://bit.ly/fh-react-hooks" target="_blank">bit.ly/fh-react-hooks</a>
 				</section>
 
+				<!--
+				<section>
+					<h3>Challenge links in case you want to skip to them</h3>
+					<hr>
+					<ul>
+						<li><a href="" target="_blank">useState Challenges</a></li>
+						<li><a href="" target="_blank">useEffect Challenges</a></li>
+						<li><a href="" target="_blank">Miscellaneous Challenges</a></li>
+					</ul>
+					<a href="https://bit.ly/fh-react-hooks" target="_blank">bit.ly/fh-react-hooks</a>
+				</section>
+-->
+
+				<!--
 				<section>
 					<h3>Overview</h3>
 					<ol>
@@ -54,7 +68,6 @@
 					</ol>
 				</section>
 
-				<!--
 				<section>
 					<h3>Hooks Overview</h3>
 					<ol>
@@ -202,8 +215,23 @@
 						<hr>
 						<p>Press &darr; for challenges</p>
 					</section>
+
 					<section>
 						<h3>Challenge 1</h3>
+						<hr>
+						<p>Make it so clicking the button adds the input to the list and clears the input</p>
+						<iframe
+							src="https://codesandbox.io/embed/adoring-minsky-t3urf?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FTodo.js&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="adoring-minsky-t3urf"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+
+					<section>
+						<h3>Challenge 2</h3>
+						<hr>
 						<p>Convert the following class component to an equivalent functional component using Hooks</p>
 						<iframe
 							src="https://codesandbox.io/embed/nameless-browser-jihhc?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCar.js&theme=dark"
@@ -213,6 +241,39 @@
 							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 						></iframe>
 					</section>
+
+					<section>
+						<h3>Challenge 3</h3>
+						<hr>
+						<p>Create a custom useMyReducer hook that recreates the built-in useReducer hook</p>
+						<iframe
+							src="https://codesandbox.io/embed/recursing-chatelet-zgpc4?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="recursing-chatelet-zgpc4"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+
+					<!--
+					<section>
+						<h3>Challenge 4</h3>
+						<hr>
+						<p>Only want to intialize state once</p>
+					</section>
+					-->
+
+					<section>
+						<h3>Challenge Sample Solutions</h3>
+						<hr>
+						<ul>
+							<li><a href="https://codesandbox.io/s/summer-water-d3trc?file=/src/Todo.js" target="_blank">Challenge 1</a></li>
+							<li><a href="https://codesandbox.io/s/heuristic-mendel-m63c4?file=/src/Car.js" target="_blank">Challenge 2 - version 1</a></li>
+							<li><a href="https://codesandbox.io/s/dank-tdd-eis31?file=/src/Car.js" target="_blank">Challenge 2 - version 2</a></li>
+							<li><a href="https://codesandbox.io/s/vigorous-chatelet-bh5hf?file=/src/Counter.js" target="_blank">Challenge 3</a></li>
+						</ul>
+					</section>
+
 					<!--
 						TODO - Have this one be where you only want it to run once
 					<section>
@@ -391,6 +452,15 @@
 							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 						></iframe>
 					</section>
+					<section>
+						<iframe
+							src="https://codesandbox.io/embed/pensive-wind-13n3o?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="pensive-wind-13n3o"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
 				</section>
 
 				<section>
@@ -399,19 +469,6 @@
 						<hr>
 						<p>Press &darr; for challenges</p>
 					</section>
-					<!--
-					<section>
-						<h3>Challenge 1</h3>
-						<p>Convert the following class component to an equivalent functional component using Hooks</p>
-						<iframe
-							src="https://codesandbox.io/embed/nameless-browser-jihhc?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCar.js&theme=dark"
-							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-							title="nameless-browser-jihhc"
-							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-						></iframe>
-					</section>
-					-->
 					<section>
 						<h3>Challenge 1</h3>
 						<p>Using the numbers api, make it so when the user changes the input, the response is shown to the user</p>
@@ -423,6 +480,18 @@
 							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 						></iframe>
 					</section>
+					<section>
+						<h3>Challenge 2</h3>
+						<p>Move the useEffect hook to a separate custom hook</p>
+						<iframe
+							src="https://codesandbox.io/embed/pensive-wind-13n3o?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FCounter.js&theme=dark"
+							style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+							title="pensive-wind-13n3o"
+							allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+							sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+						></iframe>
+					</section>
+
 				</section>
 
 				<section>
@@ -446,11 +515,11 @@
 						<ul>
 							<li>useContext</li>
 							<li>useReducer</li>
+							<li>useRef</li>
+							<li>useLayoutEffect</li>
 							<li>useCallback</li>
 							<li>useMemo</li>
-							<li>useRef</li>
 							<li>useImperativeHandle</li>
-							<li>useLayoutEffect</li>
 							<li>useDebugValue</li>
 						</ul>
 					</section>
